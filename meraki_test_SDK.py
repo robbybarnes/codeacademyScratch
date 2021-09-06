@@ -8,5 +8,11 @@ dashboard = meraki.DashboardAPI(
 )
 
 all_networks = dashboard.organizations.getOrganizationNetworks(org_id)
-print(all_networks)
+#print(type(all_networks[0]))
 
+network_id = all_networks[0]["id"]
+#print(network_id)
+
+network_devices = dashboard.networks.getNetworkDevices(network_id)
+
+print(network_devices)
